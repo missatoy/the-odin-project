@@ -8,6 +8,7 @@
 //   }
 // }
 
+
 // function Book(title, author, pages, info) {
 //   this.title = title
 //   this.author = author
@@ -18,6 +19,7 @@
 // Book.prototype.readInfo = function() {
 //   return this.info
 // }
+
 
 function Student() {
 }
