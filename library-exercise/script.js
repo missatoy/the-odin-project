@@ -8,13 +8,31 @@
 //   }
 // }
 
-function Book(title, author, pages, info) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.info = info
+// function Book(title, author, pages, info) {
+//   this.title = title
+//   this.author = author
+//   this.pages = pages
+//   this.info = info
+// }
+
+// Book.prototype.readInfo = function() {
+//   return this.info
+// }
+
+function Student() {
 }
 
-Book.prototype.readInfo = function() {
-  return this.info
+Student.prototype.sayName = function() {
+  console.log(this.name)
 }
+
+function EighthGrader(name) {
+  this.name = name
+  this.grade = 8
+}
+
+EighthGrader.prototype = Object.create(Student.prototype)
+
+const carl = new EighthGrader("Carl")
+carl.sayName() // console.logs "Carl"
+carl.grade // 8
