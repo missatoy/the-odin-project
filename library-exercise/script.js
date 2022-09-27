@@ -1,3 +1,17 @@
+let myLibrary = [];
+
+function Book(title, author, pages, info) {
+  this.title = title
+  this.author = author
+  this.pages = pages
+  this.info = info
+}
+
+function addBookToLibrary() {
+  myLibrary.push(newBook)
+}
+
+
 // function Book(title, author, pages, info) {
 //   this.title = title
 //   this.author = author
@@ -21,20 +35,20 @@
 // }
 
 
-function Student() {
-}
+// function Student() {
+// }
 
-Student.prototype.sayName = function() {
-  console.log(this.name)
-}
+// Student.prototype.sayName = function() {
+//   console.log(this.name)
+// }
 
-function EighthGrader(name) {
-  this.name = name
-  this.grade = 8
-}
+// function EighthGrader(name) {
+//   this.name = name
+//   this.grade = 8
+// }
 
-EighthGrader.prototype = Object.create(Student.prototype)
+// EighthGrader.prototype = Object.create(Student.prototype)
 
-const carl = new EighthGrader("Carl")
-carl.sayName() // console.logs "Carl"
-carl.grade // 8
+// const carl = new EighthGrader("Carl")
+// carl.sayName() // console.logs "Carl"
+// carl.grade // 8
