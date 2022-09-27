@@ -1,18 +1,12 @@
 const tools = ["Rock", "Paper", "Scissor"]
 
-let computerChoice = tools[Math.floor(Math.random()*tools.length)]
-
-function getComputerChoice() {
-  return computerChoice
-}
-
 let playerScore = 0
 let computerScore = 0
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === "Rock" && computerSelection === "Scissor" ||
-  playerSelection === "Paper" && computerSelection === "Rock" ||
-  playerSelection === "Scissor" && computerSelection === "Paper") {
+  if (playerSelection === "rock" && computerSelection === "scissor" ||
+  playerSelection === "paper" && computerSelection === "rock" ||
+  playerSelection === "scissor" && computerSelection === "paper") {
     playerScore++
     return `Well done! ${playerSelection} beats ${computerSelection}`
   } else if (playerSelection === computerSelection) {
@@ -25,12 +19,21 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   while (playerScore < 5 && computerScore < 5) {
+    let computerChoice = tools[Math.floor(Math.random()*tools.length)]
+
+    function getComputerChoice() {
+      return computerChoice
+    }
+
     const playerSelection = prompt("Pick a tool")
     const computerSelection = getComputerChoice()
-    console.log(playRound(playerSelection, computerSelection))
+
+    console.log(playRound(playerSelection.toLowerCase(), computerSelection.toLowerCase()))
     console.log(`Computer: ${getComputerChoice()}`)
     console.log(`Player: ${playerSelection}`)
     console.log(`Computer ${computerScore} - ${playerScore} Player`)
+    console.log("-----------------------")
+
     if (playerScore === 5) {
       return "Congratulations, you win! 🌈 Refresh the page to play again ✨"
     } else if (computerScore === 5) {
