@@ -11,8 +11,8 @@ let computerScore = 0
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "Rock" && computerSelection === "Scissor" ||
-      playerSelection === "Paper" && computerSelection === "Rock" ||
-      playerSelection === "Scissor" && computerSelection === "Paper") {
+  playerSelection === "Paper" && computerSelection === "Rock" ||
+  playerSelection === "Scissor" && computerSelection === "Paper") {
     playerScore++
     return `Well done! ${playerSelection} beats ${computerSelection}`
   } else if (playerSelection === computerSelection) {
@@ -23,13 +23,15 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const playerSelection = prompt("Pick a tool")
-const computerSelection = getComputerChoice()
-console.log(playRound(playerSelection, computerSelection))
-
-console.log(`Computer: ${getComputerChoice()}`)
-console.log(`Player: ${playerSelection}`)
-console.log(`Computer ${computerScore} - ${playerScore} Player`)
-
 function game() {
+  while (playerScore < 5 || computerScore < 5) {
+    const playerSelection = prompt("Pick a tool")
+    const computerSelection = getComputerChoice()
+    console.log(playRound(playerSelection, computerSelection))
+    console.log(`Computer: ${getComputerChoice()}`)
+    console.log(`Player: ${playerSelection}`)
+    console.log(`Computer ${computerScore} - ${playerScore} Player`)
+  }
 }
+
+console.log(game())
