@@ -24,13 +24,18 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  while (playerScore < 5 || computerScore < 5) {
+  while (playerScore < 5 && computerScore < 5) {
     const playerSelection = prompt("Pick a tool")
     const computerSelection = getComputerChoice()
     console.log(playRound(playerSelection, computerSelection))
     console.log(`Computer: ${getComputerChoice()}`)
     console.log(`Player: ${playerSelection}`)
     console.log(`Computer ${computerScore} - ${playerScore} Player`)
+    if (playerScore === 5) {
+      return "Congratulations, you win! 🌈 Refresh the page to play again ✨"
+    } else if (computerScore === 5) {
+      return "Oh no, you lose! 😩 Refresh the page to play again ✨"
+    }
   }
 }
 
