@@ -5,8 +5,8 @@ let computerScore = 0
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissor" ||
-  playerSelection === "paper" && computerSelection === "rock" ||
-  playerSelection === "scissor" && computerSelection === "paper") {
+      playerSelection === "paper" && computerSelection === "rock" ||
+      playerSelection === "scissor" && computerSelection === "paper") {
     playerScore++
     return `Well done! ${playerSelection} beats ${computerSelection}`
   } else if (playerSelection === computerSelection) {
