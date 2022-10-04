@@ -18,7 +18,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  while (playerScore < 5 && computerScore < 5) {
+  while (playerScore < 25 && computerScore < 25) {
     let computerChoice = tools[Math.floor(Math.random()*tools.length)]
 
     function getComputerChoice() {
