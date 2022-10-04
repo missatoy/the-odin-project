@@ -27,3 +27,9 @@ p.textContent = 'Me too!'
 
 pinkDiv.appendChild(h1);
 pinkDiv.appendChild(p);
+
+const btn = document.querySelector('#btn');
+
+function alertFunction() {
+  alert("Yay, I did it!");
+}
