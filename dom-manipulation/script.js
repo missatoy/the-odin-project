@@ -34,3 +34,6 @@ function alertFunction() {
   alert("Yay, I did it!");
 }
 
+btn.addEventListener('click', function(e) {
+  e.target.style.background = 'blue';
+});
