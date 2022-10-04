@@ -3,10 +3,14 @@ const tools = ["Rock", "Paper", "Scissor"]
 let playerScore = 0
 let computerScore = 0
 
+const rock = document.querySelector('#rock')
+const paper = document.querySelector('#paper')
+const scissor = document.querySelector('#scissor')
+
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === "rock" && computerSelection === "scissor" ||
-      playerSelection === "paper" && computerSelection === "rock" ||
-      playerSelection === "scissor" && computerSelection === "paper") {
+  if (playerSelection === rock && computerSelection === scissor ||
+      playerSelection === paper && computerSelection === rock ||
+      playerSelection === scissor && computerSelection === paper) {
     playerScore++
     return `Well done! ${playerSelection} beats ${computerSelection}`
   } else if (playerSelection === computerSelection) {
@@ -25,7 +29,7 @@ function game() {
       return computerChoice
     }
 
-    const playerSelection = prompt("Pick a tool")
+    // const playerSelection = prompt("Pick a tool")
     const computerSelection = getComputerChoice()
 
     console.log(playRound(playerSelection.toLowerCase(), computerSelection.toLowerCase()))
@@ -41,5 +45,3 @@ function game() {
     }
   }
 }
-
-console.log(game())
