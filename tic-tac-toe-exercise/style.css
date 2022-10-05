@@ -2,18 +2,22 @@ h5 {
   color: grey;
 }
 
+h6 {
+  color: grey;
+}
+
 .btn {
-  padding: 18px 36px 18px 36px;
-  font-size: 86px;
+  padding: 10px 36px 10px 36px;
+  font-size: 106px;
   margin: 0 10px 0px 10px;
 }
 
 .score {
-  font-size: 50px;
+  font-size: 36px;
 }
 
 .score-box {
   border: solid 1px;
   box-shadow: 5px 10px grey;
-  padding-top: 10px;
+  padding: 10px;
 }
