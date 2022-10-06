@@ -3,22 +3,24 @@
 let playerScore = 0
 let computerScore = 0
 let roundWinner = ''
+let attempts = 1
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissor" ||
-    playerSelection === "paper" && computerSelection === "rock" ||
-    playerSelection === "scissor" && computerSelection === "paper") {
-      playerScore++
-      roundWinner = 'player'
-      return `Well done! ${playerSelection} beats ${computerSelection}`
-    } else if (playerSelection === computerSelection) {
-      roundWinner = 'tie'
-      return "Oh no, it's a tie!"
-    } else {
-      computerScore++
-      roundWinner = 'computer'
-      return `Oh no! You lose, ${computerSelection} beats ${playerSelection}`
+  playerSelection === "paper" && computerSelection === "rock" ||
+  playerSelection === "scissor" && computerSelection === "paper") {
+    playerScore++
+    roundWinner = 'player'
+    textBox.insertAdjacentHTML("beforeend", `<p>Well done! ${playerSelection} beats ${computerSelection}</p>`)
+  } else if (playerSelection === computerSelection) {
+    roundWinner = 'tie'
+    textBox.insertAdjacentHTML("beforeend", "<p>Oh no, it's a tie!</p>")
+  } else {
+    computerScore++
+    roundWinner = 'computer'
+    textBox.insertAdjacentHTML("beforeend", `<p>Oh no! You lose, ${computerSelection} beats ${playerSelection}</p>`)
   }
+  textBox.scrollTop = textBox.scrollHeight;
 }
 
 function getRandomChoice() {
@@ -34,9 +36,7 @@ function getRandomChoice() {
 }
 
 function isGameOver() {
-  if (playerScore === 5 || computerScore === 5) {
-    
-  }
+  return playerScore === 5 || computerScore === 5
 }
 
 //UI
@@ -49,18 +49,34 @@ const computerChoice = document.querySelector('#computer-choice')
 const playerPoints = document.querySelector('#player-points')
 const computerPoints = document.querySelector('#computer-points')
 const textBox = document.querySelector('#text-box')
+const endgameModal = document.getElementById('endgameModal')
+const endgameMsg = document.getElementById('endgameMsg')
+const overlay = document.getElementById('overlay')
+const restartBtn = document.getElementById('restartBtn')
+const textBoxParent = document.getElementById('text-box-parent')
 
 rockBtn.addEventListener('click', () => handleClick('rock'))
 paperBtn.addEventListener('click', () => handleClick('paper'))
 scissorBtn.addEventListener('click', () => handleClick('scissor'))
+restartBtn.addEventListener('click', restartGame)
+overlay.addEventListener('click', closeEndgameModal)
 
 function handleClick(playerSelection) {
+  if (isGameOver()) {
+    openEndgameModal()
+    return
+  }
+
   const computerSelection = getRandomChoice()
-  console.log(playRound(playerSelection, computerSelection))
+  playRound(playerSelection, computerSelection)
   updateChoices(playerSelection, computerSelection)
   updateScore()
-  updateTextBox(playerSelection, computerSelection)
-  isGameOver()
+
+  if (isGameOver()) {
+    openEndgameModal()
+    setFinalMessage()
+
+  }
 }
 
 function updateChoices(playerSelection, computerSelection) {
@@ -97,15 +113,37 @@ function updateScore() {
   }
 }
 
-function updateTextBox(playerSelection, computerSelection) {
-  if (playerSelection === "rock" && computerSelection === "scissor" ||
-      playerSelection === "paper" && computerSelection === "rock" ||
-      playerSelection === "scissor" && computerSelection === "paper") {
-      textBox.insertAdjacentHTML("beforeend", `<p>Well done! ${playerSelection} beats ${computerSelection}</p>`)
-    } else if (playerSelection === computerSelection) {
-      textBox.insertAdjacentHTML("beforeend", "<p>Oh no, it's a tie!</p>")
-    } else {
-      textBox.insertAdjacentHTML("beforeend", `<p>Oh no! You lose, ${computerSelection} beats ${playerSelection}</p>`)
-  }
-  textBox.scrollTop = textBox.scrollHeight;
+function openEndgameModal() {
+  endgameModal.classList.add('active')
+  overlay.classList.add('active')
+}
+
+function closeEndgameModal() {
+  endgameModal.classList.remove('active')
+  overlay.classList.remove('active')
+}
+
+function setFinalMessage() {
+  return playerScore > computerScore
+    ? (endgameMsg.textContent = '✨You win!✨')
+    : (endgameMsg.textContent = 'You lose... 🥺')
+}
+
+// function removeTextBox() {
+//   textBox.parentElement.removeChild(textBox)
+// }
+
+// function addTextBox() {
+//   textBoxParent.innerHTML = "<div class='col-7 score-box score-text' id='text-box'></div>"
+// }
+
+function restartGame() {
+  playerScore = 0
+  computerScore = 0
+  playerPoints.textContent = playerScore
+  computerPoints.textContent = computerScore
+  // removeTextBox()
+  // addTextBox()
+  endgameModal.classList.remove('active')
+  overlay.classList.remove('active')
 }
