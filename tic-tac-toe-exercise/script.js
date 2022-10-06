@@ -4,9 +4,9 @@ let playerScore = 0
 let computerScore = 0
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === rock && computerSelection === scissor ||
-    playerSelection === paper && computerSelection === rock ||
-    playerSelection === scissor && computerSelection === paper) {
+  if (playerSelection === "rock" && computerSelection === "scissor" ||
+    playerSelection === "paper" && computerSelection === "rock" ||
+    playerSelection === "scissor" && computerSelection === "paper") {
       playerScore++
       return `Well done! ${playerSelection} beats ${computerSelection}`
     } else if (playerSelection === computerSelection) {
@@ -14,34 +14,39 @@ function playRound(playerSelection, computerSelection) {
     } else {
       computerScore++
       return `Oh no! You lose, ${computerSelection} beats ${playerSelection}`
+  }
+}
+
+function game() {
+  while (playerScore < 5 && computerScore < 5) {
+    let computerChoice = tools[Math.floor(Math.random()*tools.length)]
+
+    function getComputerChoice() {
+      return computerChoice
+    }
+
+    const computerSelection = getComputerChoice()
+
+    console.log(playRound(playerSelection, computerSelection.toLowerCase()))
+    console.log(`Computer: ${getComputerChoice()}`)
+    console.log(`Player: ${playerSelection}`)
+    console.log(`Computer ${computerScore} - ${playerScore} Player`)
+    console.log("-----------------------")
+
+    if (playerScore === 5) {
+      return "Congratulations, you win! 🌈 Refresh the page to play again ✨"
+    } else if (computerScore === 5) {
+      return "Oh no, you lose! 😩 Refresh the page to play again ✨"
     }
   }
+}
 
-  function game() {
-    while (playerScore < 5 && computerScore < 5) {
-      let computerChoice = tools[Math.floor(Math.random()*tools.length)]
+console.log(game())
 
-      function getComputerChoice() {
-        return computerChoice
-      }
+// let buttons = document.querySelectorAll('.btn')
 
-      // const playerSelection = prompt("Pick a tool")
-      const computerSelection = getComputerChoice()
-
-      console.log(playRound(playerSelection.toLowerCase(), computerSelection.toLowerCase()))
-      console.log(`Computer: ${getComputerChoice()}`)
-      console.log(`Player: ${playerSelection}`)
-      console.log(`Computer ${computerScore} - ${playerScore} Player`)
-      console.log("-----------------------")
-
-      if (playerScore === 5) {
-        return "Congratulations, you win! 🌈 Refresh the page to play again ✨"
-      } else if (computerScore === 5) {
-        return "Oh no, you lose! 😩 Refresh the page to play again ✨"
-      }
-    }
-  }
-
-const rock = document.querySelector('#rock')
-const paper = document.querySelector('#paper')
-const scissor = document.querySelector('#scissor')
+// buttons.forEach((button) => {
+//   button.addEventListener('click', () => {
+//     playerSelection = (button.id)
+//   })
+// })
