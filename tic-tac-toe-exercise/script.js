@@ -34,7 +34,9 @@ function getRandomChoice() {
 }
 
 function isGameOver() {
-  return playerScore === 5 || computerScore === 5
+  if (playerScore === 5 || computerScore === 5) {
+    
+  }
 }
 
 //UI
@@ -58,6 +60,7 @@ function handleClick(playerSelection) {
   updateChoices(playerSelection, computerSelection)
   updateScore()
   updateTextBox(playerSelection, computerSelection)
+  isGameOver()
 }
 
 function updateChoices(playerSelection, computerSelection) {
