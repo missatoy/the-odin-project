@@ -54,8 +54,9 @@ scissorBtn.addEventListener('click', () => handleClick('scissor'))
 
 function handleClick(playerSelection) {
   const computerSelection = getRandomChoice()
-  playRound(playerSelection, computerSelection)
+  console.log(playRound(playerSelection, computerSelection))
   updateChoices(playerSelection, computerSelection)
+  updateScore()
 }
 
 function updateChoices(playerSelection, computerSelection) {
@@ -84,3 +85,10 @@ function updateChoices(playerSelection, computerSelection) {
   }
 }
 
+function updateScore() {
+  if (roundWinner === 'player') {
+    playerPoints.textContent = playerScore
+  } else if (roundWinner === 'computer') {
+    computerPoints.textContent = computerScore
+  }
+}
