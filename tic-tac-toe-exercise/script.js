@@ -3,6 +3,7 @@
 let playerScore = 0
 let computerScore = 0
 let roundWinner = ''
+let round = 0
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "scissor" ||
@@ -46,7 +47,7 @@ const playerChoice = document.querySelector('#player-choice')
 const computerChoice = document.querySelector('#computer-choice')
 const playerPoints = document.querySelector('#player-points')
 const computerPoints = document.querySelector('#computer-points')
-
+const roundDisplay = document.querySelector('#round')
 
 rockBtn.addEventListener('click', () => handleClick('rock'))
 paperBtn.addEventListener('click', () => handleClick('paper'))
@@ -88,7 +89,11 @@ function updateChoices(playerSelection, computerSelection) {
 function updateScore() {
   if (roundWinner === 'player') {
     playerPoints.textContent = playerScore
+    round += 1
+    roundDisplay.textContent = `Round ${round}/5`
   } else if (roundWinner === 'computer') {
     computerPoints.textContent = computerScore
+    round += 1
+    roundDisplay.textContent = `Round ${round}/5`
   }
 }
