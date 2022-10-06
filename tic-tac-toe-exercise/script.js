@@ -48,6 +48,7 @@ const computerChoice = document.querySelector('#computer-choice')
 const playerPoints = document.querySelector('#player-points')
 const computerPoints = document.querySelector('#computer-points')
 const roundDisplay = document.querySelector('#round')
+const textBox = document.querySelector('#text-box')
 
 rockBtn.addEventListener('click', () => handleClick('rock'))
 paperBtn.addEventListener('click', () => handleClick('paper'))
@@ -58,6 +59,7 @@ function handleClick(playerSelection) {
   console.log(playRound(playerSelection, computerSelection))
   updateChoices(playerSelection, computerSelection)
   updateScore()
+  updateTextBox(playerSelection, computerSelection)
 }
 
 function updateChoices(playerSelection, computerSelection) {
@@ -96,4 +98,17 @@ function updateScore() {
     round += 1
     roundDisplay.textContent = `Round ${round}/5`
   }
+}
+
+function updateTextBox(playerSelection, computerSelection) {
+  if (playerSelection === "rock" && computerSelection === "scissor" ||
+      playerSelection === "paper" && computerSelection === "rock" ||
+      playerSelection === "scissor" && computerSelection === "paper") {
+      textBox.insertAdjacentHTML("beforeend", `<p>Well done! ${playerSelection} beats ${computerSelection}</p>`)
+    } else if (playerSelection === computerSelection) {
+      textBox.insertAdjacentHTML("beforeend", "<p>Oh no, it's a tie!</p>")
+    } else {
+      textBox.insertAdjacentHTML("beforeend", `<p>Oh no! You lose, ${computerSelection} beats ${playerSelection}</p>`)
+  }
+  textBox.scrollTop = textBox.scrollHeight;
 }
