@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tic Tac Toe</title>
+  <link rel="icon" href="">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="script.js" defer></script>
   <link rel="stylesheet" href="style.css">
@@ -22,16 +23,16 @@
       <div class="results d-flex justify-content-center align-items-center pt-4">
         <div class="col-3 score-box">
           <h6>You:</h6>
-          <h6 class="score">2</h6>
-          <h6>Rock</h6>
+          <h6 class="score" id="player-points">2</h6>
+          <h6 id="player-choice">Rock</h6>
         </div>
         <div>
           <h6 class="score m-4">𝖷</h6>
         </div>
         <div class="col-3 score-box">
           <h6>Computer:</h6>
-          <h6 class="score">2</h6>
-          <h6>Scissor</h6>
+          <h6 class="score" id="computer-points">2</h6>
+          <h6 id="computer-choice">Scissor</h6>
         </div>
       </div>
     </div>
