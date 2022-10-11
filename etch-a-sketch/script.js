@@ -1,15 +1,14 @@
 const container = document.querySelector('#container');
 const times = 16
-let counter = 0
 
-// // for(let i = 0; i < times; i++) {
-// //   container.innerHTML = "<div class='d-block d-sm-inline-block p-4 bg-primary'></div>";
-// //   console.log(counter += 1)
-// //   // container.innerHTML = "<div class='w-100'></div>";
-// // }
+function makeGrid(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for ( i = 0; i < (rows * cols); i++) {
+    let cell = document.createElement('div');
+    cell.innerText = (i + 1);
+    container.appendChild(cell).className = "grid-time";
+  }
+}
 
-
-container.innerHTML =
-"<div class='d-block d-sm-inline-block p-4 bg-primary'></div>" +
-"<div class='d-block d-sm-inline-block p-4 bg-primary'></div>";
-
+makeGrid(16, 16); 
