@@ -129,21 +129,11 @@ function setFinalMessage() {
     : (endgameMsg.textContent = 'You lose... 🥺')
 }
 
-// function removeTextBox() {
-//   textBox.parentElement.removeChild(textBox)
-// }
-
-// function addTextBox() {
-//   textBoxParent.innerHTML = "<div class='col-7 score-box score-text' id='text-box'></div>"
-// }
-
 function restartGame() {
   playerScore = 0
   computerScore = 0
   playerPoints.textContent = playerScore
   computerPoints.textContent = computerScore
-  // removeTextBox()
-  // addTextBox()
   endgameModal.classList.remove('active')
   overlay.classList.remove('active')
 }
