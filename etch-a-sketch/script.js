@@ -7,8 +7,8 @@ function makeGrid(rows, cols) {
   for ( i = 0; i < (rows * cols); i++) {
     let cell = document.createElement('div');
     cell.innerText = (i + 1);
-    container.appendChild(cell).className = "grid-time";
+    container.appendChild(cell).className = "grid-item";
   }
 }
 
-makeGrid(16, 16); 
+makeGrid(16, 16);
