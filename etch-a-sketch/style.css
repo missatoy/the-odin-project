@@ -34,5 +34,11 @@ h1 {
 
 .clear-button {
   border-radius: 5px;
-  border: solid #181818;
+  border: solid 0.5px #181818;
+}
+
+.clear-button:hover {
+  border: solid 0.5px #181818;
+  background-color: #18181815;
+  transition: ease 0.2s;
 }
