@@ -2,8 +2,10 @@ const defaultGridSize = 26
 
 const board = document.getElementById('board')
 const ratioBar = document.getElementById('ratio-bar')
+const clearButton = document.getElementById('clear-button')
 
 ratioBar.addEventListener('click', changeRatio)
+clearButton.addEventListener('click', clearBoard)
 
 const times = 26;
 
@@ -46,6 +48,11 @@ function changeRatio() {
   } else if (ratioBar.value === "5") {
     makeGrid(56,56)
   }
+}
+
+function clearBoard() {
+  board.innerHTML = ''
+  makeGrid(defaultGridSize, defaultGridSize)
 }
 
 window.onload = () => {
