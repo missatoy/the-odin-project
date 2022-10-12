@@ -1,7 +1,9 @@
+const defaultGridSize = 26
+
 const board = document.getElementById('board')
 const ratioBar = document.getElementById('ratio-bar')
 
-const times = 16;
+const times = 26;
 
 function makeGrid(rows, cols) {
   board.style.setProperty('--grid-rows', rows);
@@ -15,8 +17,6 @@ function makeGrid(rows, cols) {
     board.appendChild(cell);
   }
 }
-
-makeGrid(26, 26);
 
 // Press and hold
 let mouseClick = false;
@@ -45,4 +45,8 @@ function changeRatio() {
   } else if (ratioBar.value === "5") {
     makeGrid(36,36)
   }
+}
+
+window.onload = () => {
+  makeGrid(defaultGridSize, defaultGridSize)
 }
