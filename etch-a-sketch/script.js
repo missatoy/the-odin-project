@@ -1,4 +1,4 @@
-const defaultGridSize = 26
+const defaultGridSize = 36
 
 const board = document.getElementById('board')
 const ratioBar = document.getElementById('ratio-bar')
@@ -6,8 +6,6 @@ const clearButton = document.getElementById('clear-button')
 
 ratioBar.addEventListener('click', changeRatio)
 clearButton.addEventListener('click', clearBoard)
-
-const times = 26;
 
 function makeGrid(rows, cols) {
   board.style.setProperty('--grid-rows', rows);
@@ -53,8 +51,10 @@ function changeRatio() {
 function clearBoard() {
   board.innerHTML = ''
   makeGrid(defaultGridSize, defaultGridSize)
+  ratioBar.value = 3
 }
 
 window.onload = () => {
   makeGrid(defaultGridSize, defaultGridSize)
+  ratioBar.value = 3
 }
