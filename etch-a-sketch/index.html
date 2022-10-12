@@ -9,17 +9,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <div class="row flex-column align-items-center col-12 pt-5 main">
-        <h1>Etch-a-sketch</h1>
-        <div id="board"></div>
-      </div>
-      <div class="sidenav">
-        <div>
-          <input type="range" id="ratio-bar" name="ratio"
-                  min="1" max="5">
+      <div class="d-flex flex-column align-items-center justify-content-center main">
+        <h1 class="">Etch-a-sketch</h1>
+        <div class="" id="board"></div>
+        <div class="d-flex justify-content-around settings">
+          <input class="col-3 mx-3 color-picker" type="color" id="colorpicker" value="#181818">
+          <input class="col-3 mx-3" type="range" id="ratio-bar" name="ratio"
+          min="1" max="5">
+          <button class="col-3 mx-3 clear-button">Clear</button>
         </div>
       </div>
     </div>

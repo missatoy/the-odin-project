@@ -3,6 +3,8 @@ const defaultGridSize = 26
 const board = document.getElementById('board')
 const ratioBar = document.getElementById('ratio-bar')
 
+ratioBar.addEventListener('click', changeRatio)
+
 const times = 26;
 
 function makeGrid(rows, cols) {
@@ -26,24 +28,23 @@ document.body.onmouseup = () => (mouseClick = false);
 
 function changeCellColor(e) {
   if (e.type === "mouseover" && mouseClick === true) {
-    e.target.style.backgroundColor = 'pink'
+    e.target.style.backgroundColor = '#181818'
   }
 }
 
-ratioBar.addEventListener('click', changeRatio)
 
 
 function changeRatio() {
   if (ratioBar.value === "1") {
     makeGrid(16,16)
   } else if (ratioBar.value === "2") {
-    makeGrid(21,21)
-  } else if (ratioBar.value === "3") {
     makeGrid(26,26)
-  } else if (ratioBar.value === "4") {
-    makeGrid(31,31)
-  } else if (ratioBar.value === "5") {
+  } else if (ratioBar.value === "3") {
     makeGrid(36,36)
+  } else if (ratioBar.value === "4") {
+    makeGrid(46,46)
+  } else if (ratioBar.value === "5") {
+    makeGrid(56,56)
   }
 }
 
