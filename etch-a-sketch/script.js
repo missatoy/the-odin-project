@@ -1,16 +1,16 @@
-const container = document.querySelector('#container');
+// const board = document.getElementById('board') ???
 
 const times = 16;
 
 function makeGrid(rows, cols) {
-  container.style.setProperty('--grid-rows', rows);
-  container.style.setProperty('--grid-cols', cols);
+  board.style.setProperty('--grid-rows', rows);
+  board.style.setProperty('--grid-cols', cols);
   for ( i = 0; i < (rows * cols); i++) {
     let cell = document.createElement('div');
     cell.classList.add('grid-item');
     cell.addEventListener('mouseover', changeCellColor);
     cell.addEventListener('mouseout', changeCellColor);
-    container.appendChild(cell);
+    board.appendChild(cell);
   }
 }
 
