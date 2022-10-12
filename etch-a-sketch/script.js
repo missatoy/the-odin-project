@@ -1,5 +1,5 @@
 const container = document.querySelector('#container');
-const hover = document.getElementById('hover');
+
 
 const times = 16
 
@@ -8,16 +8,14 @@ function makeGrid(rows, cols) {
   container.style.setProperty('--grid-cols', cols);
   for ( i = 0; i < (rows * cols); i++) {
     let cell = document.createElement('div');
-    container.appendChild(cell).className = "grid-item";
-    cell.setAttribute('id', 'hover')
+    cell.classList.add('grid-item');
+    cell.addEventListener('click', changeCellColor);
+    container.appendChild(cell);
   }
 }
 
-makeGrid(16, 16);
-
-
 function changeCellColor(color) {
-  cell.style.backgroundColor = `${color}`
+  console.log(color)
 }
 
-hover.addEventListener('click', changeCellColor(blue))
+makeGrid(16, 16);
